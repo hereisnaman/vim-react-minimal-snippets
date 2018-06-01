@@ -1,63 +1,50 @@
-# Vim React Snippets
+# Vim Minimal React Snippets
 
 A Vim snippet library for React in ES6. You may also want to check out [vim-es2015-snippets](https://github.com/epilande/vim-es2015-snippets).
 
 Requires [UltiSnips](https://github.com/SirVer/ultisnips).
 
-![vim-react-snippets](http://i.imgur.com/ImgaW2k.gif)
-
 ## Installation
 
-Using [vim-plug](https://github.com/junegunn/vim-plug):
+Using [Vundle]( https://github.com/VundleVim/Vundle.Vim):
 
 ```vim
 " ES2015 code snippets (Optional)
-Plug 'epilande/vim-es2015-snippets'
+Plugin 'epilande/vim-es2015-snippets'
 
 " React code snippets
-Plug 'epilande/vim-react-snippets'
+Plugin 'hereisnaman/vim-minimal-react-snippets'
 
 " Ultisnips
-Plug 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 
 " Trigger configuration (Optional)
-" let g:UltiSnipsExpandTrigger="<C-l>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+
+" Vundle install
+:PluginInstall
 ```
 
 ## Usage
-In a JavaScript or JSX file, type a trigger name while in Insert mode, then press Ultisnips trigger key. In my case I have it mapped to `<C-l>`.
+In a JavaScript or JSX file, type a trigger name while in Insert mode, then press Ultisnips trigger key. In my case I have it mapped to `<tab>`.
 
 For example, let's say we have `ListItem.js`
 
 In Insert mode
 
 ```javascript
-rfc<C-l>
+rfc<tab>
 ```
 
 Will expand to
 
-```javascript
-import React, { PropTypes } from 'react';
-import styles from './ListItem.css';
+```
+import React from 'react';
 
-const ListItem = ({ ...props }) => (
-  <div className={styles.base}>
-
-  </div>
-);
-
-ListItem.defaultProps = {
-};
-
-ListItem.propTypes = {
-};
+const ListItem = (props) => <div />;
 
 export default ListItem;
 ```
-
-Check out [`UltiSnips/javascript.snippets`](UltiSnips/javascript.snippets) to see all snippets.
-
 
 ## Snippets
 
@@ -68,9 +55,6 @@ Check out [`UltiSnips/javascript.snippets`](UltiSnips/javascript.snippets) to se
 | `rrcc→`  | React Redux Class Component |
 | `rcc→`   | React Class Component |
 | `rfc→`   | React Functional Component |
-| `rsc→`   | React Styled Component |
-| `rsci→`   | React Styled Component Interpolation |
-
 
 #### Lifecycle
 
@@ -84,37 +68,3 @@ Check out [`UltiSnips/javascript.snippets`](UltiSnips/javascript.snippets) to se
 | `cdup→`  | `componentDidUpdate(prevProps, prevState) {...}` |
 | `cwu→`   | `componentWillUnmount() {...}` |
 | `ren→`   | `render() {...}` |
-
-
-#### PropTypes
-
-| Trigger    | Content |
-| -------:   | ------- |
-| `pt→`      | `propTypes {...}` |
-| `pt.a→`    | `PropTypes.array` |
-| `pt.b→`    | `PropTypes.bool` |
-| `pt.f→`    | `PropTypes.func` |
-| `pt.n→`    | `PropTypes.number` |
-| `pt.o→`    | `PropTypes.object` |
-| `pt.s→`    | `PropTypes.string` |
-| `pt.no→`   | `PropTypes.node` |
-| `pt.e→`    | `PropTypes.element` |
-| `pt.io→`   | `PropTypes.instanceOf` |
-| `pt.one→`  | `PropTypes.oneOf` |
-| `pt.onet→` | `PropTypes.oneOfType (Union)` |
-| `pt.ao→`   | `PropTypes.arrayOf (Instances)` |
-| `pt.oo→`   | `PropTypes.objectOf` |
-| `pt.sh→`   | `PropTypes.shape` |
-| `ir→`      | `isRequired` |
-
-#### Others
-
-| Trigger  | Content |
-| -------: | ------- |
-| `props→` | `this.props` |
-| `state→` | `this.state` |
-| `set→`   | `this.setState(...)` |
-| `dp→`    | `defaultProps {...}` |
-| `cn→`    | `className` |
-| `ref→`   | `ref` |
-| `pp→`    | `${props => props}` |
